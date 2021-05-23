@@ -1,0 +1,145 @@
+.standart-form__logo {
+  width: 38px;
+  height: 38px;
+}
+
+.standart-form__content {
+  background-color: #202020;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 396px;
+  width: 100%;
+  width: 396px;
+  padding: 0 30px;
+}
+
+.standart-form__form {
+  width: 100%;
+  height: 416px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.standart-form__title {
+  margin: 40px 0 40px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #ffffff;
+}
+
+.standart-form__input-label {
+  margin: 0 0 10px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #8b8b8b;
+}
+
+.standart-form__input {
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #2f2f2f;
+  border-radius: 8px;
+  width: 100%;
+  height: 46px;
+  padding: 15px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  color: #ffffff;
+  border: none;
+  /*outline: none;*/
+}
+
+.standart-form__input:focus {
+  outline: 1px solid #3ddc84;
+}
+
+.standart-form__input_error {
+  color: #ee3465;
+}
+
+.standart-form__input-error {
+  height: 20px;
+  display: block;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #ee3465;
+}
+
+.standart-form__submit {
+  margin: auto 0 0;
+  background-color: #4285f4;
+  border-radius: 3px;
+  padding: 13px 0 15px;
+  text-align: center;
+  width: 100%;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  transition: .3s ease;
+  cursor: pointer;
+}
+
+.standart-form__submit:hover {
+  opacity: .7;
+}
+
+.standart-form__submit-description {
+  margin: 16px 0 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #8b8b8b;
+}
+
+.standart-form__link {
+  margin: 0 0 0 6px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #4285f4;
+  transition: .3s ease;
+}
+
+.standart-form__link:hover {
+  opacity: .7;
+}
+
+@media (max-width: 900px) {
+  .not-found {
+    padding: 408px 0 222px;
+  }
+}
+
+@media (max-width: 360px) {
+  .standart-form__content {
+    align-items: center;
+  }
+  .standart-form__title {
+    margin: 50px 0 80px;
+  }
+  .standart-form__content {
+    min-height: 482px;
+  }
+  .standart-form__submit-description {
+    margin: 14px 0 0;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

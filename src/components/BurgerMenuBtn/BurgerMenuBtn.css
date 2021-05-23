@@ -1,0 +1,27 @@
+.menu-btn {
+  width: 44px;
+  height: 44px;
+  background-color: #202020;
+  background-image: url('../../images/burger-open-btn.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  outline: none;
+  transition: .3s ease;
+  cursor: pointer;
+}
+
+.menu-btn_type_promo {
+  background-color: #073042;
+}
+
+.menu-btn:hover {
+  opacity: .7;
+}
+
+@media (max-width: 320px) {
+  .menu-btn {
+    width: 40px;
+    height: 43px;
+  }
+}

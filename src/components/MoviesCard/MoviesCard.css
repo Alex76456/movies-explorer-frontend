@@ -1,0 +1,87 @@
+.movie-card {
+  width: 364px;
+  height: 271px;
+  background: #222222;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+.movie-card__container {
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.movie-card__info-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 9px;
+}
+
+.movie-card__image {
+  width: 100%;
+  object-fit: cover;
+  height: 203px;
+}
+
+.movie-card__title {
+  margin: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #ffffff;
+}
+
+.movie-card__duration {
+  margin: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  display: flex;
+  align-items: center;
+  color: #8b8b8b;
+}
+
+.movie-card__bookmark-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.movie-card__bookmark-btn:hover {
+  opacity: .7;
+}
+
+.movie-card__bookmark-btn-saved {
+  background-image: url('../../images/savedBtn.svg');
+}
+
+.movie-card__bookmark-btn-not-saved {
+  background-image: url('../../images/notSavedBtn.svg');
+}
+
+.movie-card__bookmark-btn-remove {
+  background-image: url('../../images/removeBtn.svg');
+}
+
+@media (max-width: 900px) {
+  .movie-card {
+    width: 339px;
+    height: 258px;
+  }
+}
+
+@media (max-width: 360px) {
+  .movie-card {
+    width: 300px;
+    height: 236px;
+  }
+}

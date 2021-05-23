@@ -1,0 +1,33 @@
+.navigation {
+  display: flex;
+}
+
+.navigation__link {
+  margin-right: 20px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: .3s ease;
+}
+
+.navigation__link:last-of-type {
+  margin-right: 0;
+}
+
+.navigation__link:hover {
+  opacity: .7;
+}
+
+.navigation__link_is-active {
+  font-weight: 500;
+}
+
+@media (max-width: 320px) {
+  .navigation__link {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+}
