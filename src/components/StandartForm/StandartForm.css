@@ -127,7 +127,7 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 444px) {
   .standart-form__content {
     align-items: center;
   }

@@ -7,7 +7,10 @@ const currentUser = {
   email: 'a@mail'
 };
 
-function Profile({}) {
+const successEdit = false;
+const failedEdit = false;
+
+function Profile() {
   const { values, handleChange, errors, isValid } = useFormWithValidation();
 
   return (
@@ -16,7 +19,7 @@ function Profile({}) {
         Привет, {currentUser.name}
         !
       </h2>
-      <form className="profile__form" /* onSubmit={}*/ noValidate>
+      <form className="profile__form" noValidate>
         <label className="profile__form-label" htmlFor="name">
           Имя
           <input
@@ -50,10 +53,8 @@ function Profile({}) {
           />
           <span className="profile__form-error">{errors.email}</span>
         </label>
-        {/*successEdit &&  <p className="profile__form-sbmt-success">
-            Данные успешно изменены!
-          </p>*/}
-        {/*failedEdit && <p className="profile__form-sbmt-failed">Ошибка при изменении данных</p>*/}
+        {successEdit && <p className="profile__form-sbmt-success">Данные успешно изменены!</p>}
+        {failedEdit && <p className="profile__form-sbmt-failed">Ошибка при изменении данных</p>}
 
         <button
           type="submit"

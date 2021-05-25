@@ -18,15 +18,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-}
-
-.header__nav-wrapper_type_unauth {
-  max-width: 183px;
 }
 
 .header__nav-wrapper_type_auth {
-  max-width: 381px;
+  gap: 50px;
 }
 
 @media (max-width: 900px) {
@@ -35,7 +30,7 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 444px) {
   .header {
     padding: 0 14px;
   }

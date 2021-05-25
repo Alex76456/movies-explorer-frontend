@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
 import MainLogoLink from '../MainLogolink/MainLogoLink';
 import BurgerMenuBtn from '../BurgerMenuBtn/BurgerMenuBtn';
@@ -20,7 +20,7 @@ const Header = ({ isLogged }) => {
     return () => window.removeEventListener('resize', updateWidth);
   });
 
-  const isMobile = width <= 768;
+  const isMobile = width <= 900;
 
   const [ isOpen, setIsOpen ] = useState(false);
   const handleBurgerMenuClick = () => setIsOpen(!isOpen);
@@ -34,7 +34,7 @@ const Header = ({ isLogged }) => {
           {isLogged && isMobile && <BurgerMenuBtn handleClick={handleBurgerMenuClick} />}
 
           {!isLogged && (
-            <div className="header__nav-wrapper header__nav-wrapper_type_unauth">
+            <div className="header__nav-wrapper">
               <Navigation isLogged={isLogged} />
               <SignInBtn />
             </div>
@@ -58,7 +58,7 @@ const Header = ({ isLogged }) => {
           {isLogged && isMobile && <BurgerMenuBtn handleClick={handleBurgerMenuClick} />}
 
           {!isLogged && (
-            <div className="header__nav-wrapper header__nav-wrapper_type_unauth">
+            <div className="header__nav-wrapper">
               <Navigation isLogged={isLogged} />
               <SignInBtn />
             </div>
@@ -77,29 +77,6 @@ const Header = ({ isLogged }) => {
       </Route>
     </Switch>
   );
-  /*
-  return (
-    <Switch>
-      <Route exact path="/">
-        <header className="header header_type_main">
-          <Link to="/" className="header__logo-link ">
-            <img className="header__logo" src={logo} alt="logo" />
-          </Link>
-
-          <Navigation />
-        </header>
-      </Route>
-      <Route path="/*">
-        <header className="header">
-          <Link to="/" className="header__logo-link ">
-            <img className="header__logo" src={logo} alt="logo" />
-          </Link>
-
-          <Navigation />
-        </header>
-      </Route>
-    </Switch>
-  );*/
 };
 
 export default Header;

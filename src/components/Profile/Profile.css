@@ -53,6 +53,7 @@
 }
 
 .profile__form-input {
+  width: 100%;
   border: none;
   background-color: #202020;
   outline: none;
@@ -62,6 +63,10 @@
   line-height: 13px;
   text-align: right;
   color: #ffffff;
+}
+
+.profile__form-input:focus {
+  outline: 1px solid #3ddc84;
 }
 
 .profile__form-error {
@@ -122,7 +127,7 @@
   opacity: .7;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 900px) {
   .profile {
     padding: 236px 0 269px 0;
   }

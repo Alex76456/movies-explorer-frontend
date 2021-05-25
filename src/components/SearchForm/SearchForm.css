@@ -86,6 +86,10 @@
     justify-content: center;
     align-items: center;
   }
+
+  .search-form__input-wrapper {
+    margin-right: 0;
+  }
   .search-form__checkbox-wrapper {
     margin-top: 36px;
   }

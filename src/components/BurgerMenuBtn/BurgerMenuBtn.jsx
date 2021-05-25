@@ -9,7 +9,7 @@ function BurgerMenuBtn({ handleClick }) {
         <button className="menu-btn menu-btn_type_promo" onClick={handleClick} />
       </Route>
       <Route path="/*">
-        <button className="menu-btn" onClick={handleClick} />;
+        <button className="menu-btn" onClick={handleClick} />
       </Route>
     </Switch>
   );

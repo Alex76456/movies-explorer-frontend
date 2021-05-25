@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './SearchForm.css';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
@@ -15,7 +15,7 @@ const SearchForm = ({ isLoading }) => {
             className="search-form__input"
             type="text"
             placeholder="Фильм"
-            /* required
+            required /*
             value={searchText || ''}*/
             /*onChange={handleChange}*/
             autoComplete="off"
@@ -27,7 +27,7 @@ const SearchForm = ({ isLoading }) => {
         </div>
         <div className="search-form__checkbox-wrapper">
           <p className="search-form__checkbox-name">Короткометражки</p>
-          <FilterCheckbox /*onFilterClick={onFilterClick}*/ />
+          <FilterCheckbox />
         </div>
       </form>
     </section>

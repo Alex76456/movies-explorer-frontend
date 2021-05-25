@@ -1,4 +1,6 @@
 .sign-in-btn {
+  margin-left: 30px;
+  padding-left: 30px;
   display: block;
   padding: 8px 20px;
   color: #202020;
@@ -16,8 +18,9 @@
   opacity: .7;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 444px) {
   .sign-in-btn {
     font-size: 10px;
+    margin-left: 14px;
   }
 }
