@@ -5,7 +5,7 @@
 Репозиторий для фронтенд части диплоного проекта `movies-explorer`.
 
 
-**REST API:**
+**Сайт:**
 
 **https://alex76456.nomoredomains.icu**
 
