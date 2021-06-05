@@ -1,26 +1,24 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import StandartForm from '../StandartForm/StandartForm';
 import { useFormWithValidation } from '../../utils/Validation/Validation';
 
 import './Login.css';
 
-const Login = ({ onLogin }) => {
-  const history = useHistory();
+const Login = ({ signInHandler, isSignInError }) => {
   const { values, handleChange, errors, isValid } = useFormWithValidation({});
 
-  const onSubmit = (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
+
     if (isValid) {
-      console.log('Успешный вход!', values);
-      onLogin();
-      history.push('/movies');
+      signInHandler(values.email, values.password);
     }
   };
 
   return (
     <section className="login">
-      <StandartForm onSubmit={onSubmit} name="login" title="Рады видеть!">
+      <StandartForm onSubmit={submitHandler} name="login" title="Рады видеть!">
         <label className="standart-form__form-field">
           <p className="standart-form__input-label">E-mail</p>
           <input
@@ -64,7 +62,13 @@ const Login = ({ onLogin }) => {
             {errors && errors['password'] !== '' && errors['password']}
           </span>
         </label>
-        <button className="standart-form__submit" type="submit" disabled={isValid ? false : true}>
+
+        {isSignInError && <span className="standart-form__error">Ошибка авторизации</span>}
+        <button
+          className={isValid ? 'standart-form__submit' : 'standart-form__submit-no-valid'}
+          type="submit"
+          disabled={isValid ? false : true}
+        >
           Войти
         </button>
         <p className="standart-form__submit-description">

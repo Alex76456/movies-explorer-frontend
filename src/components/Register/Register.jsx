@@ -5,19 +5,17 @@ import { useFormWithValidation } from '../../utils/Validation/Validation';
 
 import './Register.css';
 
-const Register = () => {
+const Register = ({ signUpHandler, isSignUpError }) => {
   const { values, handleChange, errors, isValid } = useFormWithValidation({});
 
-  const onSubmit = (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
-    if (isValid) {
-      console.log('Регистрация успешна!', values);
-    }
+    signUpHandler(values.name, values.email, values.password);
   };
 
   return (
     <section className="register">
-      <StandartForm onSubmit={onSubmit} name="register" title="Добро пожаловать!">
+      <StandartForm onSubmit={submitHandler} name="register" title="Добро пожаловать!">
         <label className="standart-form__form-field">
           <p className="standart-form__input-label">Имя</p>
           <input
@@ -82,7 +80,12 @@ const Register = () => {
             {errors && errors['password'] !== '' && errors['password']}
           </span>
         </label>
-        <button className="standart-form__submit" type="submit" disabled={isValid ? false : true}>
+        {isSignUpError && <span className="standart-form__error">Ошибка при регистрации</span>}
+        <button
+          className={isValid ? 'standart-form__submit' : 'standart-form__submit-no-valid'}
+          type="submit"
+          disabled={isValid ? false : true}
+        >
           Зарегистрироваться
         </button>
         <p className="standart-form__submit-description">

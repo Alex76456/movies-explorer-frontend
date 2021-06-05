@@ -1,25 +1,33 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useFormWithValidation } from '../../utils/Validation/Validation';
 import './Profile.css';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-const currentUser = {
-  name: 'Алексей',
-  email: 'a@mail'
-};
+function Profile({ logOutHandler, changeUserInfo, successEdit, failedEdit }){
+  const { values, setValues, handleChange, errors, isValid, setIsValid } = useFormWithValidation();
 
-const successEdit = false;
-const failedEdit = false;
+  const user = useContext(CurrentUserContext);
 
-function Profile() {
-  const { values, handleChange, errors, isValid } = useFormWithValidation();
+  useEffect(
+    () => {
+      setValues(user);
+      setIsValid(true);
+    },
+    [ user, setValues, setIsValid ]
+  );
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    changeUserInfo(values);
+  };
 
   return (
     <section className="profile">
       <h2 className="profile__title">
-        Привет, {currentUser.name}
+        Привет, {user.name}
         !
       </h2>
-      <form className="profile__form" noValidate>
+      <form className="profile__form" onSubmit={submitHandler} noValidate>
         <label className="profile__form-label" htmlFor="name">
           Имя
           <input
@@ -59,20 +67,18 @@ function Profile() {
         <button
           type="submit"
           className={
-            isValid && (values.name !== currentUser.name || values.email !== currentUser.email) ? (
+            isValid && (values.name !== user.name || values.email !== user.email) ? (
               'profile__form-submit profile__form-submit_is-active'
             ) : (
               'profile__form-submit'
             )
           }
-          disabled={
-            (values.name === currentUser.name && values.email === currentUser.email) || !isValid
-          }
+          disabled={(values.name === user.name && values.email === user.email) || !isValid}
         >
           Редактировать
         </button>
       </form>
-      <button type="button" className="profile__logout-btn">
+      <button className="profile__logout-btn" onClick={logOutHandler}>
         Выйти из аккаунта
       </button>
     </section>
