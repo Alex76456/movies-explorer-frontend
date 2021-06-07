@@ -148,8 +148,6 @@ const App = () => {
             trailer: item.trailerLink
           };
         });
-
-        localStorage.setItem('allMovies', JSON.stringify(allMoviesData));
         setAllMovies(allMoviesData);
       })
       .catch(() => {
@@ -183,7 +181,7 @@ const App = () => {
   useEffect(() => {
     const allMoviesArr = JSON.parse(localStorage.getItem('allMovies'));
     if (allMoviesArr) {
-      setAllMovies((prev) => allMoviesArr);
+      setFilterMovies(allMoviesArr);
     } else {
       getAllMoviesData();
     }
@@ -224,8 +222,12 @@ const App = () => {
 
   const searchHandler = (searchQuery) => {
     setIsLoading(true);
+
+    const lastMovies = searchFilter(allMovies, searchQuery);
+
     setTimeout(() => {
-      setFilterMovies(searchFilter(allMovies, searchQuery));
+      setFilterMovies(lastMovies);
+      localStorage.setItem('allMovies', JSON.stringify(lastMovies));
       setIsLoading(false);
     }, 600);
   };

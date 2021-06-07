@@ -47,7 +47,7 @@ const SearchForm = ({ onFilterClick, onSearch, isLoading }) => {
             disabled={isLoading}
           />
           {error && <span className="search-form__error">{error}</span>}
-          <button className="search-form__button" type="submit">
+          <button className="search-form__button" type="submit" disabled={isLoading}>
             <img className="header__logo" src={searchIcon} alt="поиск" />
           </button>
         </div>
