@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 
 //хук управления формой
-export function useForm() {
+export function useForm(){
   const [ values, setValues ] = React.useState({});
 
   const handleChange = (event) => {
@@ -15,7 +15,7 @@ export function useForm() {
 }
 
 //хук управления формой и валидации формы
-export function useFormWithValidation() {
+export function useFormWithValidation(){
   const [ values, setValues ] = React.useState({});
   const [ errors, setErrors ] = React.useState({});
   const [ isValid, setIsValid ] = React.useState(false);
@@ -38,5 +38,5 @@ export function useFormWithValidation() {
     [ setValues, setErrors, setIsValid ]
   );
 
-  return { values, handleChange, errors, isValid, setIsValid, resetForm };
+  return { values, handleChange, errors, isValid, setIsValid, resetForm, setValues };
 }

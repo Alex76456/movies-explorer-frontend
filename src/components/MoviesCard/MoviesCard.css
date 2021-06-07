@@ -33,6 +33,10 @@
   font-size: 15px;
   line-height: 18px;
   color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 290px;
 }
 
 .movie-card__duration {
@@ -77,11 +81,24 @@
     width: 339px;
     height: 258px;
   }
+  .movie-card__title {
+    max-width: 260px;
+  }
+  .movie-card__image {
+    height: 203px;
+  }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 444px) {
   .movie-card {
     width: 300px;
     height: 236px;
+  }
+
+  .movie-card__title {
+    max-width: 225px;
+  }
+  .movie-card__image {
+    height: 168px;
   }
 }

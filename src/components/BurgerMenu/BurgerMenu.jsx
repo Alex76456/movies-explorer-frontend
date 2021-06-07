@@ -3,15 +3,10 @@ import { NavLink } from 'react-router-dom';
 import ProfileBtn from '../ProfileBtn/ProfileBtn';
 import './BurgerMenu.css';
 
-function BurgerMenu({ isOpen, closeHandler }) {
+function BurgerMenu({ isOpen, closeHandler }){
   return (
     <div className={`burger-menu ${isOpen ? 'burger-menu_is-open' : ''}`}>
-      <button
-        className="burger-menu__close-btn"
-        onClick={closeHandler}
-        type="button"
-        tabIndex={0}
-      />
+      <button className="burger-menu__close-btn" onClick={closeHandler} tabIndex={0} />
 
       <div className="burger-menu__link-list">
         <NavLink

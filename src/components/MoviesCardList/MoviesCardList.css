@@ -58,7 +58,7 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 444px) {
   .movies-card-list__container {
     grid-template-columns: repeat(auto-fill, 300px);
     grid-column-gap: 0;

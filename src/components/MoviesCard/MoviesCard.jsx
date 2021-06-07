@@ -1,34 +1,52 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './MoviesCard.css';
 
-const MoviesCard = ({ moviesCard, isSaved }) => {
-  const [ saved, setSeved ] = useState(false);
+import durationFormatter from '../../utils/movieCardDuration';
 
-  const handleBookmarkClick = () => {
-    setSeved(!saved);
+const MoviesCard = ({ savedMoviesList, movie, onBookmarkClick, isMovieAdded }) => {
+  const { nameRU, duration, trailer, image } = movie;
+
+  let isAdded = isMovieAdded(movie);
+
+  const handleBookmarkClick = (e) => {
+    e.preventDefault();
+    onBookmarkClick(movie, !isAdded);
   };
 
-  const bookmarkBtnClass = `movie-card__bookmark-btn ${saved
-    ? 'movie-card__bookmark-btn-saved'
-    : 'movie-card__bookmark-btn-not-saved'}
-		`;
+  const removeHandler = () => {
+    onBookmarkClick(movie, !isAdded);
+  };
 
   return (
     <li className="movie-card">
       <div className="movie-card__container">
         <div className="movie-card__info-wrapper">
-          <h3 className="movie-card__title">{moviesCard.title}</h3>
-          <p className="movie-card__duration">{moviesCard.duration} </p>
+          <h3 className="movie-card__title">{nameRU}</h3>
+          <p className="movie-card__duration">{durationFormatter(duration)}</p>
         </div>
-        {isSaved ? (
-          <button className="movie-card__bookmark-btn movie-card__bookmark-btn-remove" /*onClick={}*/ />
+        {savedMoviesList ? (
+          <button
+            className="movie-card__bookmark-btn movie-card__bookmark-btn-remove"
+            onClick={removeHandler}
+          />
         ) : (
-          <button className={bookmarkBtnClass} onClick={handleBookmarkClick} />
+          <button
+            className={
+              isAdded ? (
+                'movie-card__bookmark-btn movie-card__bookmark-btn-saved'
+              ) : (
+                'movie-card__bookmark-btn movie-card__bookmark-btn-not-saved'
+              )
+            }
+            onClick={handleBookmarkClick}
+          />
         )}
       </div>
 
-      <img className="movie-card__image" src={moviesCard.image} alt={moviesCard.title} />
+      <a className="movie-card__link" href={trailer} target="_blank" rel="noopener noreferrer">
+        <img className="movie-card__image" src={image} alt={nameRU} />
+      </a>
     </li>
   );
 };
